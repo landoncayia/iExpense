@@ -34,6 +34,8 @@ struct ContentView: View {
                             Text(item.amount, format: currencyFormat)
                                 .foregroundColor(item.color)
                         }
+                        .accessibilityElement(children: .ignore)
+                        .accessibilityLabel("\(item.name), \(Int(floor(item.amount))) dollars and \(Int(round(item.amount.truncatingRemainder(dividingBy: 1)*100))) cents")
                     }
                     .onDelete(perform: { index in removeItems(at: index, section: 0)})
                 }
